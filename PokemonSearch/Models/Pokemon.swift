@@ -29,8 +29,8 @@ struct Pokemon: Equatable, Identifiable, Codable {
     }
     
     private static func extractIdFromURL(_ url: String) -> Int? {
-        let components = url.split(separator: "/")
-        guard let lastComponent = components.dropLast().last else { return nil }
+        let components = url.split(separator: "/").filter { !$0.isEmpty }
+        guard let lastComponent = components.last else { return nil }
         return Int(lastComponent)
     }
 }
