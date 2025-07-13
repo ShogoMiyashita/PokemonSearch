@@ -8,6 +8,8 @@ struct FavoritesClient {
     var isFavorite: @Sendable (Int) async throws -> Bool
 }
 
+struct DeleteFavoriteSuccess: Equatable {}
+
 extension FavoritesClient: DependencyKey {
     static let liveValue = FavoritesClient(
         save: { pokemon in
